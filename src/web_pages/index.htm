@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<title>G&eacute;n&eacute;rateur de fonctions ETML-ES</title>
+		<link href="/etml_es.css" rel="stylesheet" type="text/css" />
+	</head>
+
+	<body>
+		<div id="shadow-one"><div id="shadow-two"><div id="shadow-three"><div id="shadow-four">
+		<div id="page">
+
+		<div style="padding:0 0 5px 5px"><img src="/logo_ETML.gif" alt="ETML" /> <img src="/logo_ES.gif" alt="ES" /> </div>
+
+		<div id="title"><div class="right">G&eacute;n&eacute;rateur de fonctions ETML-ES</div><span id="hello">&nbsp;</span></div>
+
+		<div id="content">
+
+			<h1>Bienvenue!</h1>
+
+			<p>Vous pouvez r&eacute;gler ci-dessous les param&egrave;tres du 
+			g&eacute;n&eacute;rateur de fonctions, puis valider en appuyant
+			sur OK.</p>
+			
+			<form method="get" action="index.htm" name="paramGenForm">
+			<div class="controlbox">
+			<table>
+				<!-- Attention  : attributs autocomplete="off" des contrôles ci-dessous nécessaires pour parer à un bug
+					de firefox qui ne tient pas compte de l'item selectionné "selected" (dans le cas du menu déroulant
+					ou de la valeur donnée (dans le cas du slider) sinon-->
+				<tr><td width="20%"><b>Forme :</b></td>	<td width="10%">&nbsp;</td>						<td width="10%">&nbsp;</td>	<td width="50%"><select name="newShape" autocomplete="off"><option value="1" ~shapeSelected(1)~>Sinus</option><option value="2" ~shapeSelected(2)~>Triangle</option><option value="3" ~shapeSelected(3)~>Dent de scie</option><option value="4" ~shapeSelected(4)~>Carr&eacute;</option></select></td><td width="10%">&nbsp;</td></tr>
+				<tr><td><b>Fr&eacute;quence :</b></td>	<td><span id="newFreq">~freq~</span></td>		<td align="right">20</td> 					<td><input type="range" name="newFreq" autocomplete="off" value="~freq~" step="20" min="20" max="2000" oninput="showValue(this.name, this.value)"></td>			<td>2000</td></tr>
+				<tr><td><b>Amplitude :</b></td>			<td><span id="newAmpl">~ampl~</span></td> 		<td align="right">100</td> 					<td><input type="range" name="newAmpl" autocomplete="off" value="~ampl~" step="100" min="100" max="10000" oninput="showValue(this.name, this.value)"></td>			<td>10000</td></tr>
+				<tr><td><b>Offset :</b></td>			<td><span id="newOffset">~offset~</span></td>	<td align="right">-5000</td> 				<td><input type="range" name="newOffset" autocomplete="off" value="~offset~" step="100" min="-5000" max="5000"oninput="showValue(this.name, this.value)"></td>	<td>+5000</td></tr>
+				<tr><td colspan = "5" align="center"><input type="submit" value="OK" style="margin-top:5px;"></td></tr>
+			</table>
+			</div>
+			</form>
+			
+			<h2>Caract&eacute;ristiques du serveur</h2>
+			<table style="padding-left: 10px;">
+			<tr><td><b>Stack Version:</b></td><td>&nbsp;</td><td>~version~</td></tr>
+			<tr><td><b>Build Date:</b></td><td>&nbsp;</td><td>~builddate~</td></tr>
+			<tr><td><b>File System Location:</b></td><td>&nbsp;</td><td>~drive~</td></tr>
+			<tr><td><b>File System Type:</b></td><td>&nbsp;</td><td>~fstype~</td></tr>
+			</table>
+			
+		</div>
+
+		<div class="spacer">&nbsp;</div>
+
+		</div></div></div></div></div>
+
+		<script type="text/javascript">
+		//fonction javascript qui sert à écrire la valeur des slider à côté
+		// des slider eux-mêmes quand on scroll
+		function showValue(name, newValue)
+		{
+			switch(name)
+			{
+				case "newFreq":
+					document.getElementById("newFreq").innerHTML=newValue;
+					break;
+				case "newAmpl":
+					document.getElementById("newAmpl").innerHTML=newValue;
+					break;					
+				case "newOffset":
+					document.getElementById("newOffset").innerHTML=newValue;
+					break;										
+			}
+		}			
+		</script>
+		
+	</body>
+</html>
